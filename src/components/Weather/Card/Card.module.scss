@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 100%;
+
+  margin: 0 auto;
+  padding: 2rem;
+
+  background-color: #131417;
+  border-radius: 1rem;
+  border: 1px solid #2A2C32;
+
+  color: #868D97;
+
+  &__city, .temp-main {
+    font-size: 2em;
+    font-weight: 700;
+  }
+
+  &__date {
+    margin-top: 5px;
+  }
+
+  .temp-feels {
+    margin-top: 5px;
+  }
+
+  & &__icon {
+    width: 150px;
+    height: 150px;
+  }
+  
+  &__heading,
+  &__temp,
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } 
+
+  &__info {
+    .info__table {
+      display: grid;
+      grid-gap: 16px;
+
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1fr 1fr;
+
+      margin-top: 2rem;
+
+      @media only screen and (max-width: 500px) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: none;
+      }
+    }
+  }
+}

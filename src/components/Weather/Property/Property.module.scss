@@ -1,0 +1,20 @@
+.container {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__value {
+        font-size: 1.5em;
+        font-weight: 400;
+    }
+
+    &__title {
+        margin-top: 5px;
+
+        font-size: .8em;
+        font-weight: 300;
+
+        text-align: center;
+    }
+}

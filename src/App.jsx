@@ -24,20 +24,22 @@ function App() {
           <Link to="/todo">ToDo</Link>
         </Header>
         <main className={styles['app__window']}>
-          <Switch>
-            <Route path="/weather" exact>
-              <Weather city='Dnipro'/>
-            </Route>
-            <Route path="/retrospective" exact>
-              <Retrospective />
-            </Route>
-            <Route path="/todo" exact>
-              <ToDo/>
-            </Route>
-            <Route>
-              <Redirect to="/weather"/>
-            </Route>
-          </Switch>
+          <div className={styles['window__inner']}>
+            <Switch>
+              <Route path="/weather" exact>
+                <Weather city='Dnipro'/>
+              </Route>
+              <Route path="/retrospective" exact>
+                <Retrospective />
+              </Route>
+              <Route path="/todo" exact>
+                <ToDo/>
+              </Route>
+              <Route>
+                <Redirect to="/weather"/>
+              </Route>
+            </Switch>
+          </div>
         </main>
       </div>
     </Router>

@@ -143,15 +143,13 @@ class ToDo extends React.Component {
 
     render() {
         return <div className={styles['container']}>
-            <div className={styles['container__inner']}>
-                <div className={styles['container__heading']}>
-                    {this.renderUserSelect()}
-                    <AddItemForm onSubmit={this.addItem}/>
-                    <Search onSubmit={this.setItemsFilter}/>
-                </div>
-                <div className={styles['container__main']}>
-                    {this.renderItemList()}
-                </div>
+            <div className={styles['container__heading']}>
+                {this.renderUserSelect()}
+                <AddItemForm onSubmit={this.addItem}/>
+                <Search onSubmit={this.setItemsFilter}/>
+            </div>
+            <div className={styles['container__main']}>
+                {this.renderItemList()}
             </div>
         </div>;
     }

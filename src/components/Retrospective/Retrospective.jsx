@@ -14,7 +14,7 @@ class Retrospective extends React.Component {
         super(props);
 
         this.state = {
-            tables: [],
+            tables: props.tables || [],
         };
     }
 
@@ -26,11 +26,8 @@ class Retrospective extends React.Component {
 
     render() {
         return <div className={styles['container']}>
-            <div className={styles['container__inner']}>
-                {this.state.tables.length && 
-                    this.state.tables.map(elem => <Table className={styles['container__table']} key={elem.id} {...elem} />)}
-            </div>
-        </div>
+            {this.state.tables.map(elem => <Table className={styles['container__table']} key={elem.id} {...elem} />)}
+        </div>;
     }
 };
 

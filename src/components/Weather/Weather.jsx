@@ -30,10 +30,8 @@ const Weather = ({ city }) => {
   </div>;
 
   return <div className={styles['container']}>
-    <div className={styles['container__inner']}>
-      <div className={styles['container__list']}>
-        {daily.map((elem) => <Card className={styles['container__card']} key={elem.dt} name={city} {...elem}/>)}
-      </div>
+    <div className={styles['container__list']}>
+      {daily.map((elem) => <Card className={styles['container__card']} key={elem.dt} name={city} {...elem}/>)}
     </div>
   </div>;
 };

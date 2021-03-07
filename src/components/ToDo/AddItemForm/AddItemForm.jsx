@@ -17,7 +17,9 @@ const AddItemForm = (props) => {
 
     const onSubmit = () => {
         if(value) props.onSubmit(value);
-        valueInputRef.current.select();
+        
+        valueInputRef.current.value = '';
+        valueInputRef.current.focus();
     }
 
     return <div className={classNames(props.className, styles['container'])}>

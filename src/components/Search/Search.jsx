@@ -1,7 +1,7 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './Search.module.scss';
-import { useState } from 'react';
 
 const propTypes = {
     className: PropTypes.string,

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './AddItemForm.module.scss';
@@ -10,13 +10,14 @@ const propTypes = {
 };
 
 const AddItemForm = (props) => {
-    const valueInputRef = React.createRef();
+    const [ value, setValue ] = useState();
+    const valueInputRef = useRef();
+
+    const changeValueHandler = (e) => setValue(e.target.value);
 
     const onSubmit = () => {
-        const value = valueInputRef.current.value;
-        valueInputRef.current.select();
-
         if(value) props.onSubmit(value);
+        valueInputRef.current.select();
     }
 
     return <div className={classNames(props.className, styles['container'])}>
@@ -24,6 +25,7 @@ const AddItemForm = (props) => {
             className={styles['container__input']}
             type="text"
             placeholder="Write title..."
+            onChange={changeValueHandler}
             ref={valueInputRef}
         />
         <button

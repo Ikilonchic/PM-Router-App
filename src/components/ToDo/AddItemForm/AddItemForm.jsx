@@ -23,6 +23,7 @@ const AddItemForm = (props) => {
         <input
             className={styles['container__input']}
             type="text"
+            placeholder="Write title..."
             ref={valueInputRef}
         />
         <button

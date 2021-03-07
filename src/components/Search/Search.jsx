@@ -20,6 +20,7 @@ const Search = (props) => {
         <input
             className={styles['container__input']}
             type="text"
+            placeholder="Write something..."
             onChange={changeValueHandler}/>
         <button
             className={styles['container__btn']}

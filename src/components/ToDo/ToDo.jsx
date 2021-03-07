@@ -110,7 +110,7 @@ class ToDo extends React.Component {
         return items.filter(item => regEx.test(item.title)).map(elem => {
             return {
                 ...elem,
-                title: elem.title.replace(regEx, `<span class="${textStyles['selected-text']}">${filterValue}</span>`),
+                title: elem.title.replaceAll(regEx, `<span class="${textStyles['selected-text']}">${filterValue}</span>`),
             };
         });
     }

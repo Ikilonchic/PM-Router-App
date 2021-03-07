@@ -10,7 +10,7 @@ const Header = (props) => {
     return <header className={classNames(props.className, styles['container'])}>
         <nav className={styles['container__inner']}>
             <ul className={styles['container__menu']}>
-                {Array.from(props.children).map(elem => <li className={styles['container__element']}>{elem}</li>)}
+                {Array.from(props.children).map((elem, index) => <li key={index} className={styles['container__element']}>{elem}</li>)}
             </ul>
         </nav>
     </header>;

@@ -42,7 +42,7 @@ export default class WeatherApiService {
         const url = new URL(config.currentWeatherPath, config.WEATHER_API_URL);
     
         url.searchParams.append('q', cityName)
-        url.searchParams.append('appid', config.API_KEY);
+        url.searchParams.append('appid', config.WEATHER_API_KEY);
     
         return url;
     };
@@ -54,7 +54,7 @@ export default class WeatherApiService {
         url.searchParams.append('lon', lon);
         url.searchParams.append('units', 'metric');
         url.searchParams.append('exclude', 'minutely, hourly, current, alerts');
-        url.searchParams.append('appid', config.API_KEY);
+        url.searchParams.append('appid', config.WEATHER_API_KEY);
 
         return url;
     };

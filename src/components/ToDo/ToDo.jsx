@@ -75,6 +75,11 @@ class ToDo extends React.Component {
     }
 
     async addItem(value) {
+        if (this.state.items.some(item => item.title === value)) {
+            alert('You can add items only with unique title');
+            return;
+        }
+
         const data = await TodoApiService.postItem({
             userId: this.state.currentUser.id,
             title: value,

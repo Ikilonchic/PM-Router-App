@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './Search.module.scss';
+import { useState } from 'react';
 
 const propTypes = {
     className: PropTypes.string,
@@ -9,14 +10,21 @@ const propTypes = {
 };
 
 const Search = (props) => {
-    return <div className={styles['container']}>
+    const [ value, setValue ] = useState();
+
+    const changeValueHandler = (e) => setValue(e.target.value);
+
+    const onSearch = () => props.onSubmit(value);
+
+    return <div className={classNames(props.className, styles['container'])}>
         <input
             className={styles['container__input']}
-            type="text"/>
+            type="text"
+            onChange={changeValueHandler}/>
         <button
             className={styles['container__btn']}
             type="button"
-            onClick={props.onSubmit}>Search</button>
+            onClick={onSearch}>Search</button>
     </div>;
 };
 

@@ -23,62 +23,48 @@ class ToDo extends React.Component {
         this.loadUserItems = this.loadUserItems.bind(this);
         
         this.selectUser = this.selectUser.bind(this);
-        this.setItemsFilter = this.setItemsFilter.bind(this);
-
+        
         this.addItem = this.addItem.bind(this);
         this.changeItemStatus = this.changeItemStatus.bind(this);
-
+        
+        this.setItemsFilter = this.setItemsFilter.bind(this);
         this.filteredItems = this.filteredItems.bind(this);
 
         this.renderUserSelect = this.renderUserSelect.bind(this);
         this.renderItemList = this.renderItemList.bind(this);
     }
 
-    async load() {
-        const users = await this.loadUsers();
+    load() {
+        this.loadUsers(this.loadUserItems);
+    }
+
+    async loadUsers(callback) {
+        const users = await TodoApiService.getUsers();
 
         this.setState({
             currentUser: users[0],
             users: users,
-        }, async () => {
-            const items = await this.loadUserItems();
-
-            this.setState({
-                items: items.map(item => {
-                    return {
-                        id: item.id,
-                        title: item.title,
-                        completed: item.completed,
-                    };
-                }),
-            });
-        });
+        }, callback);
     }
 
-    loadUsers() {
-        return TodoApiService.getUsers();
-    }
+    async loadUserItems(callback) {
+        const items = await TodoApiService.getUsersItems(this.state.currentUser.id);
 
-    loadUserItems() {
-        return TodoApiService.getUsersItems(this.state.currentUser.id);
+        this.setState({
+            items: items.map(item => {
+                return {
+                    id: item.id,
+                    title: item.title,
+                    completed: item.completed,
+                };
+            }),
+        }, callback);
     }
 
     selectUser(e) {
         this.setState({
             currentUser: this.state.users.find(user => user.username === e.target.value),
-        }, async () => {
-            const items = await this.loadUserItems();
-
-            this.setState({
-                items: items.map(item => {
-                    return {
-                        id: item.id,
-                        title: item.title,
-                        completed: item.completed,
-                    };
-                }),
-            });
-        });
+        }, this.loadUserItems);
     }
 
     setItemsFilter(value) {
@@ -136,17 +122,19 @@ class ToDo extends React.Component {
     renderUserSelect() {
         const { currentUser, users } = this.state;
 
-        return users.length && <select onChange={this.selectUser} value={currentUser.username}>
+        return users.length ? <select onChange={this.selectUser} value={currentUser.username}>
             {users.map(user => {
                 return <option key={user.id} value={user.username}>{user.name}</option>
             })}
-        </select>
+        </select> : <div>
+            Users not found
+        </div>;
     }
 
     renderItemList() {
         const { items, isFiltered } = this.state;
 
-        return this.state.items.length && <div className={styles['container__list']}>
+        return <div className={styles['container__list']}>
             {[...(isFiltered ? this.filteredItems() : items)].map((elem, index) =>
                 <Item key={elem.id} number={index + 1} id={elem.id} title={elem.title} completed={elem.completed} onComplete={this.changeItemStatus}/>
             )}

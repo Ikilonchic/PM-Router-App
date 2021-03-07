@@ -1,3 +1,4 @@
+@import '../../style/Variables.scss';
 @import '../../style/Scroll.mixin.scss';
 
 .container {
@@ -7,7 +8,7 @@
     width: 100%;
     height: 100%;
 
-    background-color: #1E1F23;
+    background-color: $primary-bg-color;
 
     &__inner {
         position: absolute;

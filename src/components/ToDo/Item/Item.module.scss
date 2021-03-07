@@ -1,3 +1,5 @@
+@import '../../../style/Variables.scss';
+
 .container {
     display: flex;
     flex-direction: row;
@@ -5,11 +7,11 @@
     
     padding: .5rem;
 
-    background-color: #131417;
+    background-color: $secondary-bg-color;
     border-radius: 1rem;
-    border: 1px solid #2A2C32;
+    border: 1px solid $primary-bd-color;
 
-    color: #868D97;
+    color: $primary-text-color;
 
     &__number {
         margin-right: .5rem;

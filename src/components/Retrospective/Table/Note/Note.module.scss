@@ -1,11 +1,13 @@
+@import '../../../../style/Variables.scss';
+
 .container {
     width: 100%;
 
     padding: 1rem;
 
     border-radius: 1rem;
-    border: 1px solid #2A2C32;
-    background-color: #090A0C;
+    border: 1px solid $primary-bd-color;
+    background-color: $secondary-bg-color;
 
     transition: 1s;
 
@@ -57,11 +59,11 @@
         width: 100%;
         min-height: 50px;
 
-        background-color: #1E1F23;
+        background-color: $primary-bg-color;
         border-radius: .5rem;
-        border: 2px solid #36383D;
+        border: 2px solid $primary-bd-color;
 
-        color: #868D97;
+        color: $primary-text-color;
     }
 
     &__controllers {
@@ -74,7 +76,7 @@
 
         margin-top: .5rem;
 
-        color: #868D97;
+        color: $primary-text-color;
     }
 
     &__btn {

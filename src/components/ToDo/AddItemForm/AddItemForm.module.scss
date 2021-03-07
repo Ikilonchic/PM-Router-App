@@ -1,18 +1,20 @@
+@import '../../../style/Variables.scss';
+
 .container {
     display: flex;
     flex-direction: row;
 
-    color: #868D97;
+    color: $primary-text-color;
     
     &__input {
         width: 100%;
         min-height: 2em;
 
-        background-color: #1E1F23;
+        background-color: $primary-bg-color;
         border-radius: .5rem;
-        border: 2px solid #36383D;
+        border: 2px solid $primary-bd-color;
 
-        color: #868D97;
+        color: $primary-text-color;
     }
 
     &__btn {

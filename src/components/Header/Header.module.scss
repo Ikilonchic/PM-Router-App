@@ -1,6 +1,8 @@
+@import '../../style/Variables.scss';
+
 .container {
-    background-color: #1E1F23;
-    border-bottom: 1px solid #2A2C32;
+    background-color: $primary-bg-color;
+    border-bottom: 1px solid $primary-bd-color;
 
     &__inner {
         width: 100%;

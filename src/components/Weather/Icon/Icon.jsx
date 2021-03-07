@@ -11,7 +11,7 @@ const propTypes = {
 };
 
 const Icon = (props) => <div className={classNames(props.className, styles['container'])}>
-  <img src={`${config.IMG_API_URL}/${props.icon}@2x.png`} alt={props.description}/>
+  <img src={`${config.WEATHER_IMG_API_URL}/${props.icon}@2x.png`} alt={props.description}/>
 </div>;
 
 Icon.propTypes = propTypes;
